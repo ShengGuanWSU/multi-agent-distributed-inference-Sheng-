@@ -1,0 +1,513 @@
+\newcommand{\imp}{\vdash_{\cal I}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Enumerate and Itemize modifications
+\usepackage{enumitem}
+\setlist{topsep=0pt,noitemsep} \setitemize[1]{label=$\circ$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%
+%%%%define \cal
+\makeatletter
+\DeclareRobustCommand*\cal{\@fontswitch\relax\mathcal}
+\makeatother
+%%%%%%%%%%%%%%%
+
+\sloppy
+\newcommand{\rtable}[1]{\ensuremath{\mathsf{#1}}}
+\newcommand{\ratt}[1]{\ensuremath{\mathit{#1}}}
+\newcommand{\at}[1]{\protect\ensuremath{\mathsf{#1}}\xspace}
+\newcommand{\myhrule}{\rule[.5pt]{\hsize}{.5pt}}
+\newcommand{\oneurl}[1]{\texttt{#1}}
+\newcommand{\eat}[1]{}
+\newcommand{\stab}{\rule{0pt}{8pt}\\[-1.6ex]}
+\newcommand{\sttab}{\rule{0pt}{8pt}\\[-2ex]}
+\newcommand{\sstab}{\rule{0pt}{8pt}\\[-2.4ex]}
+\newcommand{\tabstrut}{\rule{0pt}{4pt}\vspace{-0.07in}}
+\newcommand{\vs}{\vspace{1ex}}
+\newcommand{\exa}[2]{{\tt\begin{tabbing}\hspace{#1}\=\+\kill #2\end{tabbing}}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newenvironment{tbi}{\begin{itemize}
+        \setlength{\topsep}{1.5ex}\setlength{\itemsep}{0ex}}
+%\vspace{-0.5ex}}
+        {\end{itemize}\vspace{-0.5ex}}
+\newenvironment{tbe}{\begin{enumerate}
+        \setlength{\topsep}{0ex}\setlength{\itemsep}{0ex}\vspace{0ex}}
+        {\end{itemize}\vspace{-1ex}}
+
+\newcommand{\noteqs}[1]{{\color{red}{#1}---QS}}
+
+\newcommand{\mat}[2]{{\begin{tabbing}\hspace{#1}\=\+\kill #2\end{tabbing}}}
+\newcommand{\m}{\hspace{0.05in}}
+\newcommand{\ls}{\hspace{0.1in}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\beqn}{\begin{eqnarray*}}
+\newcommand{\eeqn}{\end{eqnarray*}}
+\newcommand{\card}[1]{\mid\! #1\!\mid}
+\newcommand{\fth}{\hfill $\Box$}
+\newcommand{\AND}{\displaystyle{\bigwedge_{i=1}^{n}}}
+%\newcommand{\U}[1]{\displaystyle{\bigcup_{#1}}}
+\newcommand{\Sm}[1]{\displaystyle{\sum_{#1}}}
+\newcommand{\stitle}[1]{\vspace{1.5ex}\noindent{\bf #1}}
+\newcommand{\etitle}[1]{\vspace{0.8ex}\noindent{\underline{\em #1}}}
+\renewcommand{\t}{\tau}
+\newcommand{\Inh}[1]{\$#1}
+\renewcommand{\r}[1]{{\it rule}(#1)}
+\newcommand{\pa}{\parallel}
+\newcommand{\LHS}{\kw{{\small LHS}}\xspace}
+\newcommand{\RHS}{\kw{RHS}\xspace}
+\newcommand{\ie}{\emph{i.e.,}\xspace}
+\newcommand{\eg}{\emph{e.g.,}\xspace}
+\newcommand{\wrt}{\emph{w.r.t.}\xspace}
+\newcommand{\aka}{\emph{a.k.a.}\xspace}
+\newcommand{\kwlog}{\emph{w.l.o.g.}\xspace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  Relation Algebra operators
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\RS}{{\small S}\xspace}
+\newcommand{\RP}{{\small P}\xspace}
+\newcommand{\RJ}{{\sc j}\xspace}
+\newcommand{\RC}{{\small C}\xspace}
+\newcommand{\RSJ}{{\small SJ}\xspace}
+\newcommand{\RSC}{{\small SC}\xspace}
+\newcommand{\RSP}{{\small SP}\xspace}
+\newcommand{\RPJ}{{\small PJ}\xspace}
+\newcommand{\RPC}{{\small PC}\xspace}
+\newcommand{\RSPJ}{{\sc spj}\xspace}
+\newcommand{\RSPC}{{\small SPC}\xspace}
+\newcommand{\RSPJU}{{\sc spju}\xspace}
+\newcommand{\RSPCU}{{\small SPCU}\xspace}
+\newcommand{\RSPJUN}{{\small SPJU$^N$}\xspace}
+\newcommand{\RSPCUN}{{\small SPCU$^N$}\xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% operators
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ALGORITHMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\SELECT}{\mbox{{\bf select}}\ }
+\newcommand{\FROM}{\mbox{{\bf from}\ }}
+\newcommand{\WHERE}{\mbox{\bf where}\ }
+\newcommand{\SUM}{\mbox{{\bf sum}}\ }
+\newcommand{\GROUPBY}{\mbox{{\bf group by}}\ }
+\newcommand{\HAVING}{\mbox{{\bf having}}\ }
+\newcommand{\CASE}{\mbox{{\bf case}}\ }
+\newcommand{\END}{\mbox{{\bf end}}\ }
+\newcommand{\WHEN}{\mbox{{\bf when}}\ }
+\newcommand{\EXISTS}{\mbox{{\bf exists}}\ }
+\newcommand{\COUNT}{\mbox{\kw{count}}}
+\newcommand{\INSERTINTO}{\mbox{{\bf insert into}}\ }
+\newcommand{\UPDATE}{\mbox{{\bf update}}\ }
+\newcommand{\SET}{\mbox{{\bf set}}\ }
+\newcommand{\IN}{\mbox{{\bf in}}\ }
+\newcommand{\If}{\mbox{\bf if}\ }
+\newcommand{\Let}{\mbox{\bf let}\ }
+\newcommand{\Call}{\mbox{\bf call}\ }
+\newcommand{\Then}{\mbox{\bf then}\ }
+\newcommand{\To}{\mbox{\bf to}\ }
+\newcommand{\Else}{\mbox{\bf else}\ }
+\newcommand{\ElseIf}{\mbox{\bf elseif}\ }
+\newcommand{\While}{\mbox{\bf while}\ }
+\newcommand{\Begin}{\mbox{\bf begin}\ }
+\newcommand{\End}{\mbox{\bf end}\ }
+\newcommand{\Do}{\mbox{\bf do}\ }
+\newcommand{\Downto}{\mbox{\bf downto}\ }
+\newcommand{\Repeat}{\mbox{\bf repeat}\ }
+\newcommand{\Until}{\mbox{\bf until}\ }
+\newcommand{\For}{\mbox{\bf for}\ }
+\newcommand{\Each}{\mbox{\bf each}\ }
+
+\newcommand{\ForEach}{\mbox{\bf for each}\ }
+\newcommand{\Or}{\mbox{\bf or}\ }
+\newcommand{\Not}{\mbox{\bf not}\ }
+\newcommand{\Break}{\mbox{\bf break}\ }
+\newcommand{\Continue}{\mbox{\bf continue}\ }
+\newcommand{\Return}{\mbox{\bf return}\ }
+\newcommand{\Case}{\mbox{\bf case}\ }
+\newcommand{\Of}{\mbox{\bf of}\ }
+\newcommand{\EndCase}{\mbox{\bf end-case}\ }
+\newcommand{\NIL}{\mbox{\em nil}}
+\newcommand{\False}{\mbox{\em false}}
+\newcommand{\True}{\mbox{\em true}}
+\newcommand{\algAND}{{\sc and}\xspace}
+\newcommand{\OR}{{\sc or}\xspace}
+\newcommand{\NOT}{{\sc not}\xspace}
+\newcommand{\kw}[1]{{\ensuremath {\mathsf{#1}}}\xspace}
+\newcommand{\Reps}{S}
+\newcounter{ccc}
+\newcommand{\bcc}{\setcounter{ccc}{1}\theccc.}
+\newcommand{\icc}{\addtocounter{ccc}{1}\theccc.}
+\newcommand{\checking}{{\mbox{\small\sf Checking}\xspace}}
+\newcommand{\preProcessing}{{\mbox{\small\sf preProcessing}\xspace}}
+\newcommand{\CFDconsistency}{{\mbox{\small\sf CFD\_Checking}\xspace}}
+\newcommand{\MCS} {\kw{MCS}}
+\newcommand{\templateDB}{{\mbox{\small\sf templateDB}\xspace}}
+\newcommand{\ChaseChecking}{{\mbox{\small\sf RandomChecking}\xspace}}
+\newcommand{\chase}{{\mbox{\small\sf Chase}\xspace}}
+\newcommand{\SAT}{{\mbox{\small\sf SAT}\xspace}}
+\newcommand{\kSAT}{{\mbox{\small 3SAT}\xspace}}
+\newcommand{\PropCFDSPC}{\kw{Prop{\small CFD\_SPC}}}
+\newcommand{\PropCFDSPCU}{\kw{Prop{\small CFD\_SPCU}}}
+\newcommand{\UnionEQs}{\kw{UnionEQs}}
+\newcommand{\UnionCFDs}{\kw{UnionCFDs}}
+\newcommand{\EQ}{\kw{EQ}}
+\newcommand{\eq}{\kw{eq}}
+\newcommand{\key}{\kw{key}}
+\newcommand{\rep}{\kw{rep}}
+\newcommand{\PEQ}{\kw{EQ2CFD}}
+\newcommand{\Drop}{\kw{Drop}}
+\newcommand{\Res}{\kw{Res}}
+\newcommand{\CFD}{{\small CFD}\xspace}
+\newcommand{\CFDs}{{\small CFD}{\small s}\xspace}
+\newcommand{\CIND}{{\sc cind}\xspace}
+\newcommand{\cind}{{\small \sf CIND}}
+\newcommand{\cfd}{{\small \sf CFD}}
+\newcommand{\CINDp}{{\sc cind}$^+$\xspace}
+\newcommand{\CINDn}{{\sc cind}$^-$\xspace}
+\newcommand{\CINDs}{{\sc cind}{\small s}\xspace}
+\newcommand{\FD}{{\small FD}\xspace}
+\newcommand{\FDs}{{\small FD}{\small s}\xspace}
+\newcommand{\IND}{{\sc ind}\xspace}
+\newcommand{\INDs}{{\sc ind}{\small s}\xspace}
+\newcommand{\TGDs}{{\sc tgd}{\small s}\xspace}
+\newcommand{\NP}{\kw{NP}}
+\newcommand{\DAGs}{{\small DAG}s\xspace}
+\newcommand{\NC}{{\sc nc}\xspace}
+\newcommand{\coNP}{co{\sc np}\xspace}
+\newcommand{\PTIME}{\kw{PTIME}}
+\newcommand{\PSPACE}{\kw{PSPACE}}
+\newcommand{\EXPTIME}{\kw{EXPTIME}}
+\newcommand{\SharpP}{\kw{\#P}}
+\newcommand{\NPSPACE}{\kw{NNPSPACE}}
+\newcommand{\dom}{\protect\ensuremath{\mathsf{dom}}\xspace}
+\newcommand{\atset}{\protect\ensuremath{\mathsf{attr}}\xspace}
+\newcommand{\attr}[1]{\protect\ensuremath{\mathsf{#1}}\xspace}
+\newcommand{\attrset}{\protect\ensuremath{\mathsf{attr}}\xspace}
+\newcommand{\finatset}{\protect\ensuremath{\mathsf{finattr}}\xspace}
+\newcommand{\pvar}{\protect\ensuremath{\mathsf{var\%}}\xspace}
+\newcommand{\lLHS}{\protect\ensuremath{\mathsf{{\small LHS}}}\xspace}
+\newcommand{\RA}{{\small RA}\xspace}
+\newcommand{\RBR}{\kw{RBR}}
+\newcommand{\SQL}{{\sc sql}\xspace}
+\newcommand{\XSLT}{{\sc xslt}\xspace}
+\newcommand{\DBMS}{{\sc dbms}\xspace}
+\newcommand{\ATG}{{\sc atg}\xspace}
+\newcommand{\ATGs}{{\sc atg}{\small s}\xspace}
+\newcommand{\EBI}{{\sc ebi}\xspace}
+\newcommand{\GO}{{\sc go}\xspace}
+\newcommand{\VEC}[1]{{\sc vec}(#1)}
+\newcommand{\DAG}{{\small DAG}\xspace}
+\newcommand{\XQ}{{\sc xq}\xspace}
+\newcommand{\XQwc}{{\sc xq}$^{\scriptscriptstyle[*]}$\xspace}
+\newcommand{\XQdes}{{\sc xq}$^{\scriptscriptstyle[//]}$\xspace}
+\newcommand{\XQfull}{{\sc xq}$^{\scriptscriptstyle[*,//]}$\xspace}
+\newcommand{\vect}[1]{$\langle$ #1 $\rangle$}
+\newcommand{\sem}[1]{[\![#1]\!]}
+\newcommand{\NN}[2]{#1\sem{#2}}
+\newcommand{\e}[2]{{\mathit (#1,#2)}}
+\newcommand{\ep}[2]{{\mathit (#1,#2)+}}
+\newcommand{\brname}{\ensuremath{{\mathsf{N}}}}
+\newcommand{\budrel}[1]{\ensuremath{{\brname_{#1}}}}
+\newcommand{\budgen}[2]{\ensuremath{Q^\brname_\e{#1}{#2}}}
+\newcommand{\budcut}[2]{\ensuremath{Q_\e{#1}{#2}}}
+\newcommand{\R}{{\cal R}}
+\newcommand{\A}{{\cal A}}
+\newcommand{\Q}{{\cal Q}}
+\newcommand{\Y}{{\cal Y}}
+\newcommand{\I}{{\cal I}}
+\newcommand{\V}{{\cal V}}
+\newcommand{\E}{{\cal E}}
+\newcommand{\Lq}{{\cal L}}
+
+\renewcommand{\prec}{\kw{prec}}
+\newcommand{\rec}{\kw{recall}}
+\newcommand{\acc}{\kw{accuracy}}
+
+\newcommand{\eop}{\hspace*{\fill}\mbox{$\Box$}}     % End of proof
+\newcounter{example}%[section]
+\renewcommand{\theexample}{\arabic{example}}
+\newenvironment{example}{
+        \vspace{1.5ex}
+        \refstepcounter{example}
+        {\noindent\bf Example \theexample:}}{
+        \eop\vspace{1.5ex}}
+\def\copyrightspace{}
+\renewcommand{\ni}{\noindent}
+\newcommand{\nthesection}{\arabic{section}}
+\newcounter{theorem}
+\renewcommand{\thetheorem}{\arabic{theorem}}
+\newcounter{prop}
+\renewcommand{\theprop}{\arabic{theorem}}
+\newcounter{lemma}
+\renewcommand{\thelemma}{\arabic{theorem}}
+\newcounter{cor}
+\renewcommand{\thecor}{\arabic{theorem}}
+\newenvironment{theorem}{\begin{em}
+        \refstepcounter{theorem}
+        {\vspace{1.5ex} \noindent\bf  Theorem  \thetheorem:}}{
+        \end{em}\eop\vspace{1.5ex}} %\hspace*{\fill}\vspace*{1ex}}
+        
+%\newenvironment{conjecture}{\begin{em}
+       % \refstepcounter{theorem}
+      %  {\vspace{1.5ex} \noindent\bf  Conjecture  \thetheorem:}}{
+      %  \end{em}\eop\vspace{1.5ex}} %\hspace*{\fill}\vspace*{1ex}}
+\newenvironment{prop}{\begin{em}
+        \refstepcounter{theorem}
+        {\vspace{1.5ex}\noindent \bf Proposition \theprop:}}{
+        \end{em}\eop\vspace{1.5ex}}%\hspace*{\fill}\vspace*{1ex}}
+\newenvironment{lemma}{\begin{em}
+        \refstepcounter{theorem}
+        {\vspace{1ex}\noindent\bf Lemma \thelemma:}}{
+        \end{em}\eop\vspace{1ex}} %\hspace*{\fill}\vspace*{1ex}}
+\newenvironment{cor}{\begin{em}
+        \refstepcounter{theorem}
+        {\vspace{1.5ex}\noindent\bf Corollary \thecor:}}{
+        \end{em}\eop\vspace{1.5ex}} %\hspace*{\fill}\vspace*{1ex}}
+\newcounter{definition}[section]
+\renewcommand{\thedefinition}{\nthesection.\arabic{definition}}
+\newenvironment{definition}{
+        \vspace{1.5ex}
+        \refstepcounter{definition}
+        {\noindent\bf Definition {\bf \thedefinition}:}}{\eop\vspace{1.5ex}
+}
+\newcounter{alg}[section]
+\renewcommand{\thealg}{\nthesection.\arabic{alg}}
+\newenvironment{alg}[1]{
+        \refstepcounter{alg}
+        {\vspace{1ex}\noindent\bf Algorithm \thealg:\, #1}}{
+        \vspace*{1ex}}
+\newcounter{arule}
+\renewcommand{\thearule}{\arabic{arule}}
+\newenvironment{arule}{
+        \vspace{0.6ex}
+        \refstepcounter{arule}
+        {\noindent \em Rule \thearule:}}{
+        }
+\newcounter{claim}
+\renewcommand{\theclaim}{\arabic{claim}}
+%\newenvironment{proof}{
+        %\vspace{1ex}
+       % {\noindent\bf %Proof:}}{\eop\vspace{1ex}}
+\newenvironment{proofS}{
+        \vspace{1ex}
+        {\noindent\bf Proof sketch:\ }}{\eop\vspace{1ex}}
+
+\renewcommand{\texttt}[1]{{\small\textsf{#1}}}
+
+
+%\newcommand{\revise}[1]{\textcolor{black}{#1}}%blue
+\newcommand{\reviseq}[1]{\textcolor{black}{#1}}%green
+\newcommand{\changed}[1]{\textcolor{red}{#1}}
+\newcommand{\removed}[1]{\textcolor{gray}{#1}}
+\newcommand{\note}[1]{\textcolor{blue}{#1}}
+
+\newcommand{\conv}{conv}
+%\DeclareMathOperator{\conf}{conf}
+%\DeclareMathOperator{\sim}{sim}
+\newcommand{\lift}{lift}
+\newcommand{\supp}{\kw{supp}}
+\newcommand{\join}{Join}
+\newcommand{\Union}{\bigcup}
+\newcommand{\nfa} {\kw{NFA}}
+
+\newcommand{\tbf}{\textbf{\textcolor[rgb]{1,0,0}{TBF}}\xspace}
+\newcommand{\more}{\textbf{\textcolor[rgb]{1,0,0}{ADD MORE}}\xspace}
+
+\newcommand{\spmine}{\kw{approxDis}}
+\newcommand{\incsum}{\kw{incSum}}
+\newcommand{\atmine}{\kw{streamDis}}
+\newcommand{\patmine}{\kw{paraDis}}
+\newcommand{\patnmine}{\kw{paraDisn}}
+\newcommand{\pr}{\kw{PRA}}
+\newcommand{\sfe}{\kw{SFE}}
+\newcommand{\deeppath}{\kw{DeepPath}}
+
+\newcommand{\oprgen}{\kw{OpGen}}
+\newcommand{\apn}{\kw{APN}}
+\newcommand{\mbs}{\kw{MBS}}
+\newcommand{\genprune}{\kw{GenMBS}}%OpGen
+\newcommand{\genseed}{\kw{GenPicky}}%OpGen
+
+\newcommand{\pgen}{\kw{sumGen}}
+\newcommand{\inctopk}{\kw{incTopk}}
+\newcommand{\fmine}{\kw{heuDis}}
+\newcommand{\ftopk}{\kw{fastTopk}}
+\newcommand{\aff}{\kw{Aff}}
+\newcommand{\smatch}{\kw{evalSum}}
+\newcommand{\spsel}{\kw{Select}-\kw{Sum}}
+\newcommand{\grami}{\kw{GRAMI}}
+
+
+\newcommand{\swn}{\kw{FastWhyNot}}
+\newcommand{\mwn}{\kw{MultiWhyNot}}
+\newcommand{\isown}{\kw{ExactWhyNot}}
+\newcommand{\misown}{\kw{MultiExactWhyNot}}
+\newcommand{\swniso}{\kw{IsoWhyNot}}
+\newcommand{\enuwn}{\kw{EnuWhyNot}}
+
+\newcommand{\sw}{\kw{ApproxWhy}}
+\newcommand{\msw}{\kw{MultiApproxWhy}}
+\newcommand{\misow}{\kw{MultiExactWhy}}
+\newcommand{\isow}{\kw{ExactWhy}}
+\newcommand{\enuw}{\kw{EnuWhy}}
+\newcommand{\swiso}{\kw{IsoWhy}}
+
+\newcommand{\parti}{\kw{Ptn}}
+\newcommand{\msg}{\kw{Msg}}
+\newcommand{\lscan}{\kw{Lscan}}
+\newcommand{\pncons}{\kw{PnCons}}
+\newcommand{\assign}{\kw{Assign}}
+\newcommand{\leval}{\kw{LocalEval}}
+\newcommand{\prcons}{\kw{PrCons}}
+\newcommand{\diffc}{\kw{DiffCal}}
+\newcommand{\simq}{\kw{Sim_q}}
+\newcommand{\simst}{\kw{Sim_{st}}}
+\newcommand{\simse}{\kw{Sim_{se}}}
+\newcommand{\simr}{\kw{Sim_r}}
+\newcommand{\mcs}{\kw{mcs}}
+
+\newcommand{\divsum}{\kw{sumDiv}}
+\newcommand{\eetitle}[1]{\vspace{0.8ex}\noindent{\em\underline{#1}}}
+
+\newcommand{\parpgen}{\kw{ParsumGen}}
+\newcommand{\pardivsum}{\kw{ParsumDiv}}
+
+\newcommand{\smatchr}{\kw{evalRnd}}
+\newcommand{\smatcha}{\kw{evalSum}($\Delta$=0)\xspace}
+\newcommand{\smatchi}{\kw{evalGRAMI}}
+\newcommand{\smatchno}{\kw{evalNo}}
+
+\newcommand{\yago}{\kw{Yago}}
+\newcommand{\dbpedia}{\kw{DBP}}
+\newcommand{\freebase}{\kw{Freebase}}
+\newcommand{\pokec}{\kw{Pokec}}
+\newcommand{\amazon}{\kw{Amazon}}
+\newcommand{\imdb}{\kw{IMDB}}
+%\newcommand{\simk}{$\preceq_d$}
+\newcommand{\diff}{\kw{diff}}
+
+\newcommand\addtag{\refstepcounter{equation}\tag{\theequation}}
+
+\newcommand{\spawn}{\kw{Spawn}}
+
+%\newcommand{\lvec}{\kw{lvec}}
+
+\newcommand{\rms}{\kw{RMS}}
+\newcommand{\rmss}{\kw{RMSs}}
+
+\newcommand{\reduce}{\kw{Reduce}}
+\newcommand{\validate}{\kw{Validate}}
+
+\newcommand{\op}{\kw{op}}
+\newcommand{\oc}{\kw{oc}}
+\newcommand{\avg}{\kw{avg}}
+\newcommand{\cl}{\kw{cl}}
+\newcommand{\pre}{\kw{guard}}
+\newcommand{\ecl}{\kw{\hat{cl}}}
+\newcommand{\cost}{\kw{cost}}
+\newcommand{\bsm}{\kw{BSM}}
+
+\newcommand{\revise}[1]{{\color{blue}{#1}}}
+\newcommand{\reviseOne}[1]{{\color{black}{#1}}}
+\newcommand{\reviseTwo}[1]{{\color{black}{#1}}}
+\newcommand{\reviseThree}[1]{{\color{black}{#1}}}
+\newcommand{\reviseFour}[1]{{\color{black}{#1}}}
+
+\newcommand{\RxL}{\kw{RxL}}
+\newcommand{\RmL}{\kw{RmL}}
+\newcommand{\RmE}{\kw{RmE}}
+\newcommand{\RfL}{\kw{RfL}}
+\newcommand{\AddL}{\kw{AddL}}
+\newcommand{\AddE}{\kw{AddE}}
+
+\newcommand{\Match}{\kw{Match}}
+\newcommand{\eMatch}{\kw{EstMatch}}
+\newcommand{\mg}{\kw{mg}}
+\newcommand{\maxmg}{\kw{Maxmg}}
+\newcommand{\minA}{\kw{minA}}
+\newcommand{\maxA}{\kw{maxA}}
+%\newcommand{\dom}{\kw{dom}}
+
+
+
+\newcommand{\adom}{\kw{adom}}
+
+\newcommand{\gnn}{\kw{GNN}}
+\newcommand{\gnns}{\kw{GNNs}}
+\newcommand{\gat}{\kw{GAT}}
+\newcommand{\gcn}{\kw{GCN}}
+\newcommand{\gsage}{\kw{GraphSage}}
+\newcommand{\M}{{\cal M}}
+\newcommand{\T}{{\cal T}}
+\newcommand{\D}{{\cal D}}
+\renewcommand{\S}{{\cal S}}
+\newcommand{\Z}{{\cal Z}}
+
+\newcommand{\stack}{\kw{stackBI}}
+\newcommand{\impute}{\kw{augment}}
+\newcommand{\mask}{\kw{maskBA}}
+\newcommand{\scope}{\kw{scopeSRW}}
+\newcommand{\solver}{\kw{SRW}}
+\newcommand{\srw}{\kw{SRW}}
+\newcommand{\cscope}{\kw{scope}}
+
+\newcommand{\cora}{\kw{Cora}}
+\newcommand{\citeseer}{\kw{Citeseer}}
+%\newcommand{\dbpedia}{\kw{DBpedia}}
+\newcommand{\weibo}{\kw{Weibo}}
+\newcommand{\ppi}{\kw{PPI}}
+
+
+
+\newcommand{\N}{{\cal N}}
+\newcommand{\F}{{\cal F}}
+
+\newcommand{\model}{\kw{GEDet}}
+\newcommand{\nogan}{\kw{GEDet}-B~}
+\newcommand{\constraint}{\kw{VioDet}}
+\newcommand{\outlier}{\kw{OutlierDet}}
+\newcommand{\gan}{\kw{GAN}}
+\newcommand{\gans}{\kw{GANs}}
+
+\newcommand{\oag}{\kw{OAG}}
+
+\newcommand{\bart}{\kw{BART}}
+\newcommand{\gfd}{\kw{GFD}}
+\newcommand{\gfds}{\kw{GFDs}}
+
+\newcommand{\errd}{\kw{Err\textsubscript{d}}}
+\newcommand{\err}{\kw{Err}}
+%\newcommand{\precision}{\kw{Prec.}}
+%\newcommand{\recall}{\kw{Rec.}}
+%\newcommand{\fscore}{\kw{F\textsubscript{1}}}
+\newcommand{\precision}{\kw{P}}
+\newcommand{\recall}{\kw{R}}
+\newcommand{\fscore}{\kw{F}\textsubscript{1}}
+\newcommand{\train}{\kw{train}}
+\newcommand{\test}{\kw{test}}
+
+\newcommand{\brown}[1]{\textcolor{brown}{#1}}
+
+\newcommand{\warn}[1]{\textcolor{red}{#1}}
+\newcommand{\wu}[1]{\textcolor{red}{[\textbf{Wu}]:#1}}
+\newcommand{\sheng}[1]{\textcolor{brown}{[\textbf{Sheng}]:#1}}
+\newcommand{\peng}[1]{\textcolor{blue}{[\textbf{Peng}]:#1}}
+\newcommand{\hanchao}[1]{\textcolor{blue}{[\textbf{Hanchao}]:#1}}
+
+\renewcommand{\H}{{\cal H}}
+\renewcommand{\L}{{\cal L}}
+%\renewcommand{\G}{{\cal G}}
+\renewcommand{\R}{{\cal R}}
+
+\newcommand{\yelp}{\kw{Yelp}}
+
+\newcommand{\Bmodel}{\textbf{GEDet}}

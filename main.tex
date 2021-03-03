@@ -1,0 +1,75 @@
+\documentclass{article}
+%\usepackage[utf8]{inputenc}
+\usepackage{fix-cm}
+\usepackage{color}
+
+\input{commands}
+
+\title{Distributed Predictions for Spatio-Temporal Datastreams via Aggregation of Localized Models with Graph Attention Network}
+
+\date{March 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+The presence of the complex behavior in the network of data stream (\emph{e.g.,} traffic network, power network) makes accurate forecasting of the transient dynamic states be a challenging task. In the spatial-temporal and dynamical data flow system, it is critical to ensure reliable operation by continuously monitoring and timely predicting any unstable data flow. This calls for robust predictive methods, which remain to be accurate and efficient. The data flow network environment is dynamic and  signals at one intersection
+influences the flow rate at the connected intersection. This necessitates the use
+of hybrid computational intelligent models to predict the flow and influence of
+the neighbouring intersection signals. For example, in the power-grid network, an event in Florida would have an impact on the decision in Chicago area via the information propagation at the agent layer. Increased communication overheads, reliability issues, data mining, and real-time control requirements limits the use of centralized data flow management. These limitations are overcome by distributed data flow controls. Multi-agent systems provide such an distributed architecture with learning and communication capabilities. In this work, a distributed multi-agent architecture capable of learning from the dynamic data flow environment and communicating with the neighbouring clusters is developed.
+
+\subsection{Challenges}
+\begin{enumerate}
+    \item Systems are becoming more and more complex due to rapid developments
+in different technological areas that allow for powerful computational devices and
+fast communication facilities. Increased communication overheads, reliability issues, data mining, and real-time control requirements limits the use of centralized system. In such a complex network, the observation is given by a subset of data flows whose occurrence is always and immediately sensed by a monitoring
+agent. Other data flow measurements not in this subset are unobservable due to missing or unreliable connections with intolerable delays. This necessitates the use of hybrid computational intelligent models to predict the dynamic data flow and influence of the neighbouring components in the network.  (\textbf{Partial Observation})
+    \item Large-scale networks of sensing devices have become increasingly pervasive, with applications ranging from sensor networks to emergency response systems.
+    Nodes in these networks need to perform dynamic inference to combine a sequence of local, noisy observations into a global, joint estimate of the system state. 
+    In the distributed data flow network, the agent along with its monitoring nodes at each area has access to real-time measurements of its own. For the localized network, it is affordable that we can apply pretrained robusted base model to infer the predictions for this set of localized nodes. However, a localized base model may only work well when underlying data satisfies a tractable noise distribution. \warn{add more later}
+
+(\textbf{Localized base models are inherently hard to incorporate each others' observations. Localized agents can have inconsistent beliefs about the current state of the system, and ineffective handling of this situation can lead to very poor estimates of the global state.})
+    \item 
+(\textbf{Real-time inference needs})
+\end{enumerate}
+
+\subsection{Formulation of Prediction Task}
+
+\subsubsection{Task Definition: PFO}  
+\begin{enumerate}
+    \item Input for PFO: snapshot of spatio-temporal network with N nodes (N=68), M measurements (M = 3, frequency ...) and T timesteps from past (T=500, if considering 10 seconds with 50 samples/second).  
+    \item Output: produce a NxM tensor for $F$ future time step.
+    \item We define PFO as a function: $g_{fo}(S(t, T): [ N \times M \times T ], A: [ N \times N ]) \rightarrow S(t+F): [ N \times M \times F]$
+\end{enumerate}
+
+
+
+\subsubsection{Task Definition: Prediction under Parital Observability}  
+\begin{enumerate}
+    \item We begin with adding another input component, a network representing the agent topology $G_a$, and it's adjacency matrix $A_a$.
+    \item We introduce some helper functions. $g_B(G_a, a)$ returns buses for agent a.  $N(G_a, a)$ returns ids of neighboring agent for agent a. 
+    \item we introduce base model with cluster $i$ (e.g. i=1,..5). Each cluster has $N_i$ nodes as partition result. 
+    The base model is pre-trained and can
+    already map:
+    $g_{fo}(S_i(t, T): [ N_i \times M \times T ], A: [ N_i \times N_i ]) \rightarrow S_i(t+F): [ N_i \times M \times F]$.
+    
+    We want to develop a distributed agent-based algorithm to get predictions of the global states:
+    
+    
+    
+    $g_{po}(\sum_{i} S_i(t+F): [\sum_{i} N_i \times M \times F], A_a: [ I \times I ], G_a) \rightarrow \sum_{a} S(a, t+F): [ N_a \times M \times F]$ where $N_a = | g_B(G_a, a) |$
+\end{enumerate}
+
+
+
+
+
+\subsubsection{Design Objective}  
+
+\section{Method Sketch}
+
+
+
+\end{document}
